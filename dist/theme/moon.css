@@ -22,7 +22,7 @@ html * {
   --block-margin: 20px;
   --heading-margin: 0 0 20px 0;
   --heading-font: League Gothic, Impact, sans-serif;
-  --heading-color: #eee8d5;
+  --heading-color: #4b0082;
   --heading-line-height: 1.2;
   --heading-letter-spacing: normal;
   --heading-text-transform: uppercase;
@@ -41,13 +41,13 @@ html * {
 
 .reveal-viewport {
   background: #002b36;
-  background-color: #002b36; }
+  background-color: #e6e6fa; }
 
 .reveal {
   font-family: "Lato", sans-serif;
-  font-size: 40px;
+  font-size: 40px;				
   font-weight: normal;
-  color: #93a1a1; }
+  color: #1d003a; }			/*цвет текста */
 
 .reveal ::selection {
   color: #fff;
@@ -72,9 +72,9 @@ html * {
 .reveal h3,
 .reveal h4,
 .reveal h5,
-.reveal h6 {
+.reveal h6 { /*заголовки*/
   margin: 0 0 20px 0;
-  color: #eee8d5;
+  color: #4b0082;
   font-family: "League Gothic", Impact, sans-serif;
   font-weight: normal;
   line-height: 1.2;
@@ -241,7 +241,7 @@ html * {
  * LINKS
  *********************************************/
 .reveal a {
-  color: #268bd2;
+  color: #9370db;
   text-decoration: none;
   transition: color .15s ease; }
 
@@ -265,25 +265,25 @@ html * {
   transition: all .15s linear; }
 
 .reveal a:hover .r-frame {
-  border-color: #268bd2;
+  border-color: #9370db;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
 
 /*********************************************
  * NAVIGATION CONTROLS
  *********************************************/
 .reveal .controls {
-  color: #268bd2; }
+  color: #9370db; }
 
 /*********************************************
  * PROGRESS BAR
  *********************************************/
 .reveal .progress {
   background: rgba(0, 0, 0, 0.2);
-  color: #268bd2; }
+  color: #9370db; }
 
 /*********************************************
  * PRINT BACKGROUND
  *********************************************/
 @media print {
   .backgrounds {
-    background-color: #002b36; } }
+    background-color: #e6e6fa; } }

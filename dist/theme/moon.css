@@ -34,8 +34,8 @@ html * {
   --heading3-size: 1.55em;
   --heading4-size: 1em;
   --code-font: monospace;
-  --link-color: #268bd2;
-  --link-color-hover: #78b9e6;
+  --link-color: #dcd8ef;
+  --link-color-hover: #dcd8ef;
   --selection-background-color: #d33682;
   --selection-color: #fff; }
 
@@ -278,7 +278,7 @@ html * {
  * PROGRESS BAR
  *********************************************/
 .reveal .progress {
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(82, 73, 90, 0.2);
   color: #9370db; }
 
 /*********************************************

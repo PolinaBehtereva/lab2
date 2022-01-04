@@ -545,7 +545,7 @@
 						$D(ξ) = \sum \limits_{i=1}^{n} p_i(x_i-M(ξ))^2 \quad$ либо<br/>
 						$D(ξ) = \tfrac{1}{2}\sum \limits_{i=1}^{n} \sum \limits_{j=1}^{n}p_i p_j(x_i-x_j)^2 =
 						\sum \limits_{i=1}^{n} \sum \limits_{j=i+1}^{n}p_i p_j(x_i-x_j)^2$ 
-						<br/>$x_i$ - i-ое значение случайной величины,<br/>
+						<br/>$x_i - i$-ое значение случайной величины,<br/>
 						$p_i = P( ξ = x_i)$ - вероятность того, что случайная величина принимает значение $x_i.$
 
 						Note:
@@ -1168,7 +1168,7 @@
 					variants = [];
 					freq = [];
 					variants1 = [];
-
+					console.log(variants1);
 					if(variants.length === 0)
 					{
 						for(let i = 0; i<1000; i++)
@@ -1177,6 +1177,7 @@
 						}
 						variants = sortmass(variants);
 					}
+					freqVar(variants);
 					let counts = 
 					{
 						x: variants1,

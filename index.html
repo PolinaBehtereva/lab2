@@ -1,11 +1,9 @@
-
 <!doctype html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<!-- Название презентации -->
 		<title>Математическая статистика</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
@@ -19,36 +17,18 @@
 			h1{
 				font-size: 3.2em !important;
 			}
-			/* Чтобы поля ввода были такого же размера, как и текст, увеличим размер шрифта дополнительно */
 			input, select {
 				font-size: 25px;
 			}
-			/* Чтобы тригонометрическая таблица влезла опытным путем уменьшим размер на 30%*/
-			#table {
-				font-size: 70%;
-			}
-			/* Для невидимых элементов создадим скрывающий класс */
 			.hide {
 				display: none;
-			}
-			/* Высоту карты задаем обязательно, опытным путем определили высоту в 350 пикселей */
-			.map {
-				height: 350px;
 			}
 		</style>
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<!-- 
-					Слайд заголовок
-					Используем 1 заголовок 
-					Так как используется markdown прописываем дополнительно аттрибутами 
-						data-markdown data-separator-notes="^Note:"
-						а так же помещаем markdown разметку внутрь <script type="text/template"></script>
-					Для заметок используем конструкцию Note: новая строка
-					Для центрирования по вертикали используйте класс center
-				-->
+
 				<section class="center" data-markdown  data-separator-notes="^Note:">
 					<script type="text/template">
 						Математическая 
@@ -61,7 +41,7 @@
 						Заголовок
 					</script>
 				</section>
-				<!-- В слайдах разделителях используем 2 заголовок -->
+
 				<section class="center" data-markdown  data-separator-notes="^Note:">
 					<script type="text/template">
 						Определения и примеры
@@ -69,11 +49,7 @@
 
 					</script>
 				</section>
-				<!-- 
-					В обычных слайдах используем 3 заголовок
-					Греческие буквы можно набирать с помощью греческой раскладки клавиатуры или 
-					простым копированием с эталонного алфавита
-				 -->
+				
 				<section data-markdown  data-separator-notes="^Note:">
 					<script type="text/template">
 						### Математическая статистика
@@ -175,7 +151,7 @@
 						**Для интервального вариационного ряда:** Пусть даны интервалы с соответсвующими им частотами.<br/>
 						$x:[80;90), [90;100), [100;110), [110;120), [120;130)$<br/>
 						$n_i: 8, 15, 36, 29, 12$<br/>
-						<br/>$\bar x_в$ = $\tfrac{85\cdot8 + 95\cdot15 + 105\cdot36 + 115\cdot29 + 125\cdot12}{100}$
+						<br/>$\bar x_в$ = $\tfrac{85\cdot8 + 95\cdot15 + 105\cdot36 + 115\cdot29 + 125\cdot12}{100} = 107.2$
 						Note:
 
 					</script>
@@ -324,11 +300,43 @@
 					<script type="text/template">
 						### Дисперсия
 						***Дисперсия или выборочная дисперсия ($D_в$)***  – это среднее арифметическое квадратов отклонений всех вариант выборки от выборочной средней<br/>
-						$D_в$ = $\tfrac{\sum\limits_{i=1}^{n}(x_i - \bar x_в)^2}{n}$<br/>
-						Для несформированного вариационного ряда: <br/>
-						$D_в$ = $\tfrac{\sum\limits_{i=1}^{n}(x_i - \bar x_в)^2\cdot n_i}{n}$,<br/>
-						где $n_i$ - соответствующие частоты;
-						$x_i$ - одинаковые по значению варианты.
+						$D_в$ = $\tfrac{\sum\limits_{i=1}^{n}(x_i - \bar x_в)^2\cdot n_i}{n} \quad$ или $\quad$
+						$D_в$ = $\bar {x^2} - \bar{(x_в)}^2$,<br/>
+						где $n_i$ - соответствующие частоты;<br/>
+						**Несмещённая (исправленная) дисперсия:**<br/>
+						$\tilde{D_в}$ = $\tfrac{\sum\limits_{i=1}^{n}(x_i - \bar x_в)^2}{n-1}$
+
+						Note:
+
+					</script>
+				</section>
+
+				<section data-markdown  data-separator-notes="^Note:">
+					<script type="text/template">
+						### Дисперсия
+						**Пример:**$\scriptsize\text{ Пусть дана выборка с соответсвующими ей частотами}$<br/>
+						$\scriptsize x: 35, 36, 37, 38, 39, 40, 41, 42$<br/>
+						$\scriptsize n_i: 8, 9, 8, 12, 24, 25, 5, 9$
+						<br/>$\small\bar x_в = \scriptsize\tfrac{35\cdot 8 + 36\cdot9 + 37\cdot8 + 38\cdot12 + 39\cdot24 + 40\cdot25 + 41\cdot5 + 42\cdot9}{100} = \scriptsize 38.75$<br/>
+						$\small D_в = \tfrac{\sum\limits_{i=1}^{8}(x_i - \bar x_в)^2\cdot n_i}{100} = 
+						\tfrac{8(35-38.75)^2 + 9(36 - 38.75)^2 + }{100}$ <br/><br>$\small \tfrac{+8(37 - 38.75)^2 + 12(38-38.75)^2+
+						24(39-38.75)^2 + 25(40-38.75)^2 +}{100}$<br/><br/> $\small \tfrac{+5(41-38.75)^2 + 9(42-38.75)^2}{100} =\scriptsize 3.7275$
+
+						Note:
+
+					</script>
+				</section>
+
+				<section data-markdown  data-separator-notes="^Note:">
+					<script type="text/template">
+						### Дисперсия
+					
+						$\small\bar {x^2} = \tfrac{35^2 \cdot 8 + 36^2\cdot9 + 37^2\cdot8 + 38^2\cdot12 + 39^2\cdot24 + 40^2\cdot25 + 41^2\cdot5 + 42^2\cdot9}{100} = \scriptsize 1505.29$<br/>
+						$\footnotesize D_в = \bar {x^2} - \bar{(x_в)}^2 = 1505.29 - (38.75)^2 = 3.7275$
+
+						**$\small\text{Для исправленной дисперсии:}$**<br/>
+						$\small\tilde{D_в} = \tfrac{\sum\limits_{i=1}^{8}(x_i - \bar x_в)^2}{100-1} = \tfrac{8(35-38.75)^2 + 9(36 - 38.75)^2 + }{99}$ <br/><br>$\small \tfrac{+8(37 - 38.75)^2 + 12(38-38.75)^2+
+						24(39-38.75)^2 + 25(40-38.75)^2 +}{99}$<br/><br/> $\small \tfrac{+5(41-38.75)^2 + 9(42-38.75)^2}{99} =\scriptsize 3.7651$
 
 						Note:
 
@@ -362,14 +370,14 @@
 
 					</script>
 				</section>
-
+			
 				<section data-markdown  data-separator-notes="^Note:">
 					<script type="text/template">
 						### Математическое ожидание
 						<!--***Математическое ожидание ($M(ξ)$)*** случайной величины - среднее значение случайной величины.-->
 						Пусть задано вероятностное пространство <br/>($Ω,a,P$) и определённая на нём случайная величина ξ.
 						Если существует интеграл Лебега от ξ по пространству $Ω$ , то он называется ***математическим ожиданием***, или ***средним (ожидаемым) значением ($M(ξ)$)***.<br/>
-						$M(ξ)$ = $\int_{Ω} ξ dP$
+						$M(ξ)$ = $\int \limits_{Ω} ξ dP$
 
 						Note:
 
@@ -379,170 +387,293 @@
 				<section data-markdown  data-separator-notes="^Note:">
 					<script type="text/template">
 						### Математическое ожидание
-						<!--***Математическое ожидание ($M(ξ)$)*** случайной величины - среднее значение случайной величины.-->
-						Пусть задано вероятностное пространство <br/>($Ω,a,P$) и определённая на нём случайная величина ξ.
-						Если существует интеграл Лебега от ξ по пространству $Ω$ , то он называется ***математическим ожиданием***, или ***средним (ожидаемым) значением ($M(ξ)$)***.<br/>
-						$M(ξ)$ = $\int_{Ω} ξ dP$
+						**Определение через функцию распределения случайной величины**
+						Если $F(x)$ — функция распределения случайной величины, то её математическое ожидание задаётся интегралом Лебега — Стилтьеса:<br/>
+						$M(ξ)$ = $\int \limits_{-\infty}^{+\infty} x dF(x)$<br/>
+						
+						Note:
+
+					</script>
+				</section>
+
+				<section data-markdown  data-separator-notes="^Note:">
+					<script type="text/template">
+						### Пример
+						$\small \text{Дана функция распределения случайной величины ξ:}$
+						$$ \tiny \begin{equation}
+								F(x) = \begin{cases\notag}
+											0, & x \leq 0\\\\
+											\tfrac{1}{2}(x^3 - 3x^2 + 3x), & 0 < x \leq 2\\\\
+											1, & x > 2 .
+										\end{cases}
+							\end{equation}
+						$$
+						$$ \tiny \begin{equation}
+								f(x) = F'(x) = \begin{cases\notag}
+											0, & x \leq 0\\\\
+											\tfrac{1}{2}(3x^2 - 6x + 3) = \tfrac{3}{2}(x^2 - 2x + 1), & 0 < x \leq 2\\\\
+											0, & x > 2
+										\end{cases}
+							\end{equation}
+						$$
+						$\tiny M(ξ) = \int \limits_{-\infty}^{+\infty}xf(x)dx = \int \limits_{0}^{2} x\tfrac{3}{2}(x^2 -
+						 2x + 1)dx = \tfrac{3}{2}(\tfrac{x^4}{4}-\tfrac{2x^3}{3}+\tfrac{x^2}{2})|_0^2 = \tfrac{3}{2}(\tfrac{32}{5}-
+						 \tfrac{8}{1}+\tfrac{8}{3}) = \tfrac{8}{5}$
+
 
 						Note:
 
 					</script>
 				</section>
 
-				<!-- 
-					Для вставки формул используйте конструкции $$ $$ или $ $
-					Греческие буквы можно также набрать с помощью TeX
-				-->
+				<section data-markdown  data-separator-notes="^Note:">
+					<script type="text/template">
+						### Математическое ожидание
+						**Определение через плотность распределения**
+						
+						$M(ξ)$ = $\int \limits_{-\infty}^{+\infty} x f(x) dx$,<br/>
+						$f(x)$ - плотность распеределения
 
-				<!-- 
-					Для слайдов с программами используйте чистый HTML без доп аргументов в section
-					Помните, что id элементов должны быть уникальными
-					Проверьте, что Вы обращаетесь с элементов с id, которые существуют
-				-->
-				<section>
-					<h3>Конвертер величин</h3>
-					<!-- Поле для ввода конвертируемого значения -->
-					<input type="text" name="" id="converter_value" 
-					placeholder="Градусы или радианы">
-					<!-- Выпадающее меню с вариантам конвертации -->
-					<select id="converter_type">
-						<option value="radian">Радиан</option>
-						<option value="degree">Градус</option>
-					</select>
-					<!-- Кнопка конвертации -->
-					<input type="button" id="converter_button" value="Конвертировать">
-					<!-- Поле вывода -->
-					<output id="converter_out"></output>
+						Note:
+
+					</script>
+				</section>
+
+				<section data-markdown  data-separator-notes="^Note:">
+					<script type="text/template">
+						### Пример
+						$\scriptsize \text{Дана функция плотности распределения случайной величины ξ:}$
+						$$ \tiny \begin{equation}
+								f(x) = \begin{cases\notag}
+											Cx^2, & x \in[0;2]\\\\
+											0, & x \notin[0;2] .
+										\end{cases}
+							\end{equation}
+						$$
+						$\scriptsize \int \limits_{-\infty}^{+\infty}f(x) dx = 1. \text{ В данном случае:}$<br/>
+						$\scriptsize C \int \limits_{0}^{2}x^2dx = 1 \Rightarrow C = \tfrac{1}{\int \limits_{0}^{2}x^2dx}$<br/> 
+						$\scriptsize \int \limits_{0}^{2}x^2dx = \tfrac{1}{3}(x^3)|_0^2 = \tfrac{1}{3}(8-0) = \tfrac{8}{3}. \quad \text{Т.о:}$
+						$\scriptsize C = \tfrac{1}{\tfrac{8}{3}} = \tfrac{3}{8}$
+
+						Note:
+
+					</script>
+				</section>
+
+				<section data-markdown  data-separator-notes="^Note:">
+					<script type="text/template">
+						### Пример
+						$\small \text{Тогда функция плотности распределения вероятностей:}$<br/>
+						$$ \scriptsize \begin{equation}
+								f(x) = \begin{cases\notag}
+											\tfrac{3}{8}x^2, & x \in[0;2]\\\\
+											0, & x \notin[0;2] .
+										\end{cases}
+							\end{equation}
+						$$
+						$\small M(ξ) = \int \limits_{-\infty}^{+\infty}xf(x)dx = \int \limits_{0}^{2}x \cdot \tfrac{3}{8}x^2 dx =
+						\tfrac{3}{8}\int \limits_{0}^{2}x^3 dx$ <br/> 
+						<br/>$\small = \tfrac{3}{8} \cdot \tfrac{1}{4}(x^4)|_0^2 = \tfrac{3}{32}(16-0) = \tfrac{3}{2}$
+
+						Note:
+
+					</script>
+				</section>
+
+				<section data-markdown  data-separator-notes="^Note:">
+					<script type="text/template">
+						### Математическое ожидание
+						**Определение для дискретной случайной величины**
+						
+						Если $ξ$ — дискретная случайная величина, имеющая распределение<br/>
+						$P(ξ = x_i) = p_i, \quad \sum \limits_{i=1}^{\infty} p_i = 1,$<br/>
+						то $M(ξ)$ = $\sum \limits_{i=1}^{\infty} x_i p_i$<br/>
+						
+						Note:
+
+					</script>
+				</section>
+
+				<section data-markdown  data-separator-notes="^Note:">
+					<script type="text/template">
+						### Математическое ожидание
+
+						**Пример:** Дан закон распределения вероятностей выпавших на кубике очков: <br/>
+						$x_i: 1, 2, 3, 4, 5, 6$ <br/>
+						$p_i: \tfrac{1}{6}, \tfrac{1}{6}, \tfrac{1}{6}, \tfrac{1}{6}, \tfrac{1}{6}, \tfrac{1}{6}$<br/>
+						<br/>$M(ξ) = 1\cdot\tfrac{1}{6} + 2\cdot\tfrac{1}{6} + 3\cdot\tfrac{1}{6} + 4\cdot\tfrac{1}{6} + 5\cdot\tfrac{1}{6} +$<br/> 
+						<br/>$6\cdot\tfrac{1}{6} =\tfrac{1+2+3+4+5+6}{6} = \tfrac{21}{6} = 3.5$
+
+						Note:
+
+					</script>
+				</section>
+
+				<section data-markdown  data-separator-notes="^Note:">
+					<script type="text/template">
+						### Дисперсия
+
+						***Дисперсией $D(ξ)$*** случайной величины $ξ$ называется математическое ожидание квадрата
+						 отклонения случайной величины от своего математического ожидания.<br/>
+						<br/>$D(ξ)$ = $M((ξ - M(ξ))^2) \quad$ либо<br/>
+						<br/>$D(ξ) = M(ξ^2) - (M(ξ))^2$ 
+
+						Note:
+
+					</script>
+				</section>
+
+				<section data-markdown  data-separator-notes="^Note:">
+					<script type="text/template">
+						### Дисперсия
+						**Пример:** Дан закон распределения:<br/>
+						$x_i: -5, 2.5, 10$<br/>
+						$p_i: 0.5, 0.4, 0.1$.<br/>
+						$M(ξ) = -5\cdot 0.5 + 2.5\cdot 0.4 + 10\cdot 0.1 = -0.5$<br/>
+						$M(ξ^2) = (-5)^2\cdot 0.5 + (2.5)^2\cdot 0.4 + (10)^2\cdot 0.1 = 12.5 + 2.5 + 10 = 25$<br/>
+						$D(ξ) = M(ξ^2) - (M(ξ))^2 = 25 -(-0.5)^2 = 24.75$
+						
+						Note:
+
+					</script>
+				</section>
+
+				<section data-markdown  data-separator-notes="^Note:">
+					<script type="text/template">
+						### Дисперсия
+						**Для дискретной случайной величины $ξ$:**
+						$D(ξ) = \sum \limits_{i=1}^{n} p_i(x_i-M(ξ))^2 \quad$ либо<br/>
+						$D(ξ) = \tfrac{1}{2}\sum \limits_{i=1}^{n} \sum \limits_{j=1}^{n}p_i p_j(x_i-x_j)^2 =
+						\sum \limits_{i=1}^{n} \sum \limits_{j=i+1}^{n}p_i p_j(x_i-x_j)^2$ 
+						<br/>$x_i$ - i-ое значение случайной величины,<br/>
+						$p_i = P( ξ = x_i)$ - вероятность того, что случайная величина принимает значение $x_i.$
+
+						Note:
+
+					</script>
+				</section>
+
+				<section data-markdown  data-separator-notes="^Note:">
+					<script type="text/template">
+						### Дисперсия
+						**Пример:** Данные из предыдущего примера.<br/>
+						$x_i: -5, 2.5, 10$<br/>
+						$p_i: 0.5, 0.4, 0.1$.<br/>
+						$M(ξ) = -0.5$<br/>
+						$D(ξ) = \sum \limits_{i=1}^{3} p_i(x_i-M(ξ))^2 = 0.5(-5+0.5)^2 + 0.4(2.5+0.5)^2 + 0.1(10+0.5)^2 = 24.75$
+
+						Note:
+
+					</script>
+				</section>
+
+				<section data-markdown  data-separator-notes="^Note:">
+					<script type="text/template">
+						### Дисперсия
+						**Для непрерывной случайной величины $ξ$:**
+						$D(ξ) = \int \limits_{-\infty}^{+\infty}(x_i-M(ξ))^2 f(x)dx \quad$ или<br/>
+						$D(ξ) = \int \limits_{-\infty}^{+\infty}x^2 f(x)dx - (M(ξ))^2$
+
+						Note:
+
+					</script>
+				</section>
+
+				<section data-markdown  data-separator-notes="^Note:">
+					<script type="text/template">
+						### Дисперсия
+						**Пример:** $\scriptsize \text{Дана функция плотности распределения:}$<br/>
+						$$ \tiny \begin{equation}
+								f(x) = \begin{cases}
+											\tfrac{3}{4}(1-x^2), & x \in[-1;1]\\\\
+											0, & x \notin[-1;1] .
+										\end{cases}
+							\end{equation}
+						$$
+						$\tiny M(ξ) = \int \limits_{-\infty}^{+\infty}x f(x)dx = \int \limits_{-1}^{1}x \cdot \tfrac{3}{4}(1-x^2) dx = 
+						\tfrac{3}{4} \cdot \int \limits_{-1}^{1}(x-x^3) dx = \tfrac{3}{4}(\tfrac{x^2}{2} - \tfrac{x^4}{4})|_{-1}^1 = 
+						\tfrac{3}{4}(\tfrac{1}{2} - \tfrac{1}{4} - \tfrac{1}{2} + \tfrac{1}{4}) = 0$<br/>
+
+						$\tiny D(ξ) = \int \limits_{-\infty}^{+\infty}x^2 f(x)dx - (M(ξ))^2 = \int \limits_{-1}^{1}x^2\cdot\tfrac{3}{4}(1-x^2)dx - 0^2 =
+						\tfrac{3}{4}(\tfrac{x^3}{3} - \tfrac{x^5}{5})|_{-1}^1 = \tfrac{3}{4}(\tfrac{1}{3}-\tfrac{1}{5}-(-\tfrac{1}{3}+\tfrac{1}{5})) =
+						\tfrac{3}{4}(\tfrac{2}{3}-\tfrac{2}{5})=$<br/> $\tiny = \tfrac{3}{4}\cdot\tfrac{4}{15} = \tfrac{1}{5}$
+
+						Note:
+
+					</script>
 				</section>
 
 				<section class="center" data-markdown  data-separator-notes="^Note:">
 					<script type="text/template">
-						Тригонометрия
+						Нахождение некоторых величин
 						-----------
 
 					</script>
 				</section>
 
-				<section data-markdown  data-separator-notes="^Note:">
-					<script type="text/template">
-						### Тригонометрические функции
+				<section>
+					<h3>Выборочное среднее</h3>
 
-						Тригонометрические функции - элементарные функции,
-						которые исторически возникли при рассмотрении
-						прямоугольных треугольников и выражали зависимости длин
-						сторон этих треугольников от прямых углов при гипотенузе.
-						
-						Note:
+					<input type="text" id="selaverage">
+					<input type="button" value="Найти" id="getSelaverage">
+					<input type="text" id="resultSelaverage">
+					<br/>
+					<br/>
+					<h3> Медиана</h3>
 
-					</script>
+					<input type="text" id="mediana">
+					<input type="button" value="Найти" id="getMediana">
+					<input type="text" id="resultMediana">
+					<br/>
+					<br/>
+					<h3>Мода</h3>
+
+					<input type="text" id="moda">
+					<input type="button" value="Найти" id="getModa">
+					<input type="text" id="resultModa">
+
 				</section>
 
 				<section>
-					<h3>Тригонометрический круг</h3>
-					<!-- Блок для рисования библиотекой plotly -->
-					<div id="plot" style="height: 400px; margin-left:25%;"></div>
-				</section>
+					<h3> Минимум</h3>
 
-				<section data-markdown  data-separator-notes="^Note:">
-					<script type="text/template">
-						### Тригонометрические функции
+					<input type="text" id="minimum">
+					<input type="button" value="Найти" id="getMinimum">
+					<input type="text" id="resultMinimum">
+					<br/>
+					<br/>
+					<h3>Максимум</h3>
 
-						$$
-						\sin \alpha = \tfrac{y_b}{R}
-						$$
-						$$
-						\cos \alpha = \tfrac{x_b}{R}
-						$$
-						$$
-						\tg \alpha = 
-							\tfrac{\sin \alpha}{\cos \alpha} =
-							\tfrac{y_b}{x_b}
-						$$
-						$$
-						\ctg \alpha = 
-							\tfrac{\cos \alpha}{\sin \alpha} =
-							\tfrac{x_b}{y_b}
-						$$
-						
-						Note:
-
-					</script>
+					<input type="text" id="maximum">
+					<input type="button" value="Найти" id="getMaximum">
+					<input type="text" id="resultMaximum">
+					
 				</section>
 
 				<section>
-					<h3>Таблица тригонометрических функций</h3>
-					<!-- Сюда сгенерируем тригонометрическую таблицу -->
-					<output id="table"></output>
+					<h3> Размах</h3>
+
+					<input type="text" id="range">
+					<input type="button" value="Найти" id="getRange">
+					<input type="text" id="resultRange">
+					<br/>
+					<br/>
+					<h3> Дисперсия</h3>
+					
+					<input type="text" id="variance">
+					<input type="button" value="Найти" id="getVariance"><br/>
+					Для смещенной:
+					<input type="text" id="resultVariance"><br/>
+					Для несмещенной:
+					<input type="text" id="resultIsprVariance">
 				</section>
 
-				<section data-markdown  data-separator-notes="^Note:">
-					<script type="text/template">
-						### Ортодромия
-		
-						Ортодромия (от греч. 
-						$O\rho\theta\omicron\delta\rho\omicron\mu\omicron\varsigma$
-						 прямой путь) в геометрии -
-						кратчайшая линия между двумя точками на поверхности вращения.
-						
-						В картографии и навигации ортодромия - кратчайшее расстояние
-						между двумя точками на поверхности Земли. 
+				<section> 
+					<h4> Построение диаграммы выборки </h4>
 
-						Частыми случаями ортодромии являются меридианы и экватор.
-						
-						Note:
-
-					</script>
-				</section>
-
-				<section data-markdown  data-separator-notes="^Note:">
-					<script type="text/template">
-						### Рассчет ортодромии
-
-						Длина ортодромии равна $D = l \cdot \delta $, где
-						$
-							\delta = \arccos(
-								\sin \phi_1 \cdot \sin \phi_2 +
-								\cos \phi_1 \cdot \cos \phi_2 \cdot
-								\cos(\lambda_2 - \lambda_1)
-							)
-						$
-
-						$\phi_1$ = широта начальной точки в градусах  
-						$\phi_2$ = широта конечной точки в градусах  
-						$\lambda_1$ = долгота начальной точки в градусах  
-						$\lambda_2$ = долгота конечной точки в градусах  
-						$l$ = длина дуги меридиана небесного тела
-						Note:
-
-					</script>
-				</section>
-
-				<section>
-					<h3>Рассчет ортодромии</h3>
-					<div>
-						<!-- Поля для ввода конвертируемого значения широты и долготы точки А-->
-						<label>Широта А
-							<input type="text" id="latA">
-						</label> <br>
-						<label>Долгота А
-							<input type="text" id="lonA">
-						</label>
-					</div>
-					<div>
-						<!-- Поля для ввода конвертируемого значения широты и долготы точки B-->
-						<label>Широта B
-							<input type="text" id="latB">
-						</label> <br>
-						<label>Долгота B
-							<input type="text" id="lonB">
-						</label>
-					</div>
-					<div>
-						<!-- Кнопка для расчета -->
-						<input id="ortodroma" type="button" value="Посчитать">
-					</div>
-					<!-- Вывод результата -->
-					<output id="ortodroma_out"></output>
+					<input type="button" value="Построить" style="position: absolute; width: 150px;height: 50px;
+					left: 1000px; margin-top: 250px;" id="diagramma">
+					<div id="plot" style="height: 400px;"></div>
 				</section>
 
 				<section class="center" data-markdown  data-separator-notes="^Note:">
@@ -555,93 +686,18 @@
 
 					</script>
 				</section>
-
+			
 				<section>
-					<h3>Игра 1. Города классические</h3>
-					<!-- Кнопка начала игры -->
-					<div id="game1_button_start" class="show">
-						<input type="button" value="Начать игру" id="game1_start">
+					<h3> "Подбрось монетку" </h3>
+					<div id="Game_button_start" class="sum">
+						<input type="button" value="Начать игру" id="game" >
+						<input type="text" id="resultGame">
 					</div>
-					<!-- Игровое поле -->
-					<div id="game1_area" class="hide">
-						<!-- Лейбл для показа первой буквы города -->
-						<label for="game1_town">Ваш город:</label>
-						<!-- Поле для ввода города -->
-						<input type="text" id="game1_town" >
-						<!-- Кнопка для отправки города на сервер -->
-						<input type="button" id="game1_set_result" value="Отправить город">
-						<!-- Текущая информация об игре -->
-						<output id="game1_town2"></output>
-					</div>
-					<!-- Карта для показа меток -->
-					<div class="map" id="game1_map"></div>
-					<aside class="note">
-						Классическая игра в города.
-						Правила игры: Вы должны ввести название города, которое начинается на 
-						последнюю букву предыдущего города.
-					</aside>
+					<br/>
+					Вероятность выпадения орла:
+					<input type="text" id="odds_res" value="0.5">
 				</section>
 
-				<section>
-					<h3>Игра 2. Города на расстояние</h3>
-					<!-- Кнопка начала игры -->
-					<div id="game2_button_start" class="show">
-						<input type="button" value="Начать игру" id="game2_start">
-					</div>
-					<!-- Игровое поле -->
-					<div id="game2_area" class="hide">
-						<!-- Лейбл для показа первой буквы города -->
-						<label for="game2_town">Ваш город:</label>
-						<!-- Поле для ввода города -->
-						<input type="text" id="game2_town" >
-						<!-- Кнопка для отправки города на сервер -->
-						<input type="button" id="game2_set_result" value="Отправить город">
-						<!-- Текущая информация об игре -->
-						<output id="game2_town2"></output>
-					</div>
-					<!-- Текущий счет игры. -->
-					<div id="game2_score" class="hide">
-						<span>Счет: </span>
-						<span id="game2_score"></span>
-					</div>
-					<!-- Карта для показа меток -->
-					<div class="map" id="game2_map"></div>
-				</section>
-
-				<section>
-					<h3>Игра 3. Города на расстояние. Многопользовательская</h3>
-					<!-- Поле начала игры -->
-					<div id="game3_button_start" class="show">
-						<label for="game3_name"></label>
-						<!-- Поле для ввода имени играющего -->
-						<input type="text" id="game3_name" value="Fox">
-						<!-- Кнопка начала игры -->
-						<input type="button" value="Начать игру" id="game3_start">
-					</div>
-					<!-- Блок для информации об ожидании игрока -->
-					<div id="game3_waiting">
-					</div>
-					<!-- Игровое поле -->
-					<div id="game3_area" class="hide">
-						<!-- Лейбл для показа первой буквы города -->
-						<label for="game3_town">Ваш город:</label>
-						<!-- Поле для ввода города -->
-						<input type="text" id="game3_town" >
-						<!-- Кнопка для отправки города на сервер -->
-						<input type="button" id="game3_set_result" value="Отправить город">
-						<!-- Текущая информация об игре -->
-						<output id="game3_town2"></output>
-					</div>
-					<!-- Текущий счет игры. -->
-					<div id="game3_score" class="hide">
-						<span>Счет: </span>
-						<span id="game3_score"></span>
-					</div>
-					<!-- Карта для показа меток -->
-					<div class="map" id="game3_map"></div>
-				</section>
-
-				<!-- Блок для исходных кодов-->
 				<section class="center" data-markdown  data-separator-notes="^Note:">
 					<script type="text/template">
 						Исходный код программ
@@ -652,17 +708,154 @@
 					</script>
 				</section>
 
-				<!-- Вставляйте с помощью трех обратных апострофов  -->
 				<section class="center" data-markdown  data-separator-notes="^Note:">
 					<script type="text/template">
-						### Вычисление ортодромы
+						### Вычисление величин
 						```
-						function ortodroma (latA, lonA, latB, lonB) {
-							return 6372795 * Math.acos (
-								Math.cos(deg2rad(latB)) * Math.cos(deg2rad(latA)) *
-								Math.cos(deg2rad(lonA) - deg2rad(lonB)) + 
-								Math.sin(deg2rad(latB)) * Math.sin(deg2rad(latA))
-							);
+							// Вычисление медианы
+							document.querySelector('#getMediana').onclick = () => 
+							{
+								let medianaString = document.querySelector('#mediana');
+								if (medianaString !== undefined && medianaString.value !== '') 
+								{
+									let list = medianaString.value.split(',');
+									let mediana = math.median.apply(math, list);
+									document.querySelector('#resultMediana').value = mediana;
+								}
+							}
+
+							// Вычисление выборочной средней
+							document.querySelector('#getSelaverage').onclick = () => 
+							{
+								let selaverageString = document.querySelector('#selaverage');
+								if (selaverageString !== undefined && selaverageString.value !== '') 
+								{
+									let list = selaverageString.value.split(',');
+									let selaverage = math.mean.apply(math, list);
+									document.querySelector('#resultSelaverage').value = selaverage;
+								}
+							}
+
+							//Вычисление моды
+							document.querySelector('#getModa').onclick = () => 
+							{
+								let modaString = document.querySelector('#moda');
+								if (modaString !== undefined && modaString.value !== '') 
+								{
+									let list = modaString.value.split(',');
+									let moda = math.mode.apply(math, list);
+									document.querySelector('#resultModa').value = moda;
+								}
+							}
+
+							//Вычисление минимума
+							document.querySelector('#getMinimum').onclick = () => 
+							{
+								let minimumString = document.querySelector('#minimum');
+								if (minimumString !== undefined && minimumString.value !== '')
+								{
+									let list = minimumString.value.split(',');
+									let minimum = math.min.apply(math, list); 
+									document.querySelector('#resultMinimum').value = minimum;
+								}
+							}
+
+							// Вычисление максимума
+							document.querySelector('#getMaximum').onclick = () => 
+							{
+								let maximumString = document.querySelector('#maximum');
+								if (maximumString !== undefined && maximumString.value !== '')
+								{
+									let list = maximumString.value.split(',');
+									let maximum = math.max.apply(math, list); 
+									document.querySelector('#resultMaximum').value = maximum;
+								}
+							}
+
+							//Вычисление размаха
+							document.querySelector('#getRange').onclick = () => 
+							{
+								let rangeString = document.querySelector('#range');
+								if (rangeString !== undefined && rangeString.value !== '') 
+								{
+									let list = rangeString.value.split(',');
+									let range = math.max.apply(math, list) - math.min.apply(math, list); 
+									document.querySelector('#resultRange').value = range;
+								}
+							}
+
+							//Вычисление дисперсии 
+							document.querySelector('#getVariance').onclick = () => 
+							{
+								let varianceString = document.querySelector('#variance');
+								if (varianceString !== undefined && varianceString.value !== '') 
+								{
+									let list = varianceString.value.split(',');
+									let variance = math.variance(list,'uncorrected');
+									let isprvariance = math.variance.apply(math, list); 
+									document.querySelector('#resultVariance').value = variance;
+									document.querySelector('#resultIsprVariance').value = isprvariance;
+								}
+							}
+						```
+						Note:
+
+					</script>
+				</section>
+
+				
+
+				<section class="center" data-markdown  data-separator-notes="^Note:">
+					<script type="text/template">
+						### Построение диаграммы
+						```
+						let layout = 
+						{
+							//Ограничение координатной плоскости
+							xaxis: 
+							{
+								range: [0, 100],
+								title: 'Варианты',
+							},
+							yaxis: 
+							{
+								range: [0, 40],
+								title: 'Частоты',
+							},
+							//Ширина и высота координатной плоскости
+							width: 1000,
+							height: 640,
+
+						}
+						Plotly.newPlot('plot',[],layout);
+						document.querySelector('#diagramma').onclick = () =>
+						{
+							variants = [];
+							freq = [];
+							variants1 = [];
+
+							if(variants.length === 0)
+							{
+								for(let i = 0; i<1000; i++)
+								{
+									variants[i] = Math.floor(Math.random()*100) + 1;
+								}
+								variants = sortmass(variants);
+							}
+							let counts = 
+							{
+								x: variants1,
+								y: freq,
+								type: 'scatter',
+								line:
+								{
+									color: 'rgb(34, 4, 64)',
+									width: 2.5,
+								},
+							};
+							let data = [counts];
+							
+							Plotly.newPlot('plot', data, layout);
 						}
 						```
 						Note:
@@ -672,15 +865,132 @@
 
 				<section class="center" data-markdown  data-separator-notes="^Note:">
 					<script type="text/template">
-						Веселые картинки
-						----
-
+						### Игра "Подбрось монетку"
+						```
+						document.querySelector('#game').onclick = () =>
+						{
+							n = 0;
+							n = Math.round(Math.random());
+							if(n===0)
+							{
+								document.querySelector('#resultGame').value = 'Орёл';
+								side[col]=0;
+								col++;
+							}
+							else
+							{
+								document.querySelector('#resultGame').value = 'Решка';
+								side[col] = 1;
+								col++;
+							}
+							document.querySelector('#odds_res').value = OddsV(side);
+							console.log(side);
+						}
+						```
 						Note:
 
 					</script>
 				</section>
-		
-				
+
+				<section class="center" data-markdown  data-separator-notes="^Note:">
+					<script type="text/template">
+						### Подсчет вероятности
+						
+						```
+						//Функция подсчета вероятности выпадения орла
+						function OddsV(massiv)
+						{
+							ver = 0.5;
+							let orl = 0;
+							if(massiv.length === 1){ver = 0.5;}
+							else
+							{
+								for(let i = 0; i < massiv.length; i++)
+								{
+									orl = massiv[i]===0 ? orl+1 : orl+0;
+								}
+								if(orl === 0 && orl === massiv.length) ver = 0.5;
+								else ver = orl/massiv.length;
+							}
+							return ver;
+						}
+						```
+						Note:
+
+					</script>
+				</section>
+
+				<section class="center" data-markdown  data-separator-notes="^Note:">
+					<script type="text/template">
+						### Массив из частот вариант
+						
+						```
+						//Функция возвращающая массив из частот вариант
+						function freqVar(massiv)
+						{
+							let count = 1;
+							let nom = 0;
+							let sum = 0;
+							for(let i = 0; i < massiv.length-1; i++)
+							{
+								while(massiv[i]===massiv[i+1] && sum!==1000)
+								{
+									count+=1;
+									i++;
+									sum+=1;
+								}
+								if(sum!==1000)
+								{
+									freq[nom] = count;
+									variants1[nom] = massiv[i];
+									count = 1;
+									nom++;
+									sum+=1;
+								}	
+							}
+							if(massiv[massiv.length-2]!==massiv[massiv.length-1] && sum!==1000)
+							{
+								freq[nom] = 1;
+								variants1[nom] = massiv[massiv.length-1];
+							}
+							return([freq,variants1]);
+						}
+						```
+						Note:
+
+					</script>
+				</section>
+
+				<section class="center" data-markdown  data-separator-notes="^Note:">
+					<script type="text/template">
+						### Сортировка по возрастанию
+						
+						```
+						//Функция сортировки элементов массива по возрастанию
+						function sortmass (variant)
+						{
+							for(let i=0; i<1000; i++)
+							{
+								for(let j=i; j<1000; j++)
+								{
+									if(variant[i]-variant[j] < 0 || variant[i]-variant[j] === 0) variant[i] = variant[i];
+									if(variant[i]-variant[j] > 0)
+									{
+										let buf = variant[i];
+										variant[i] = variant[j];
+										variant[j] = buf;
+									} 
+								}
+							}
+							return variant;
+						}
+						```
+						Note:
+
+					</script>
+				</section>
+
+
 				<section data-menu-title="Заключительный слайд" class="center" data-markdown  data-separator-notes="^Note:">
 					<script type="text/template">
 						Спасибо за внимание
@@ -694,812 +1004,283 @@
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
-		<!-- Вставляем стандартный плагин математики -->
 		<script src="plugin/math/math.js"></script>
-		
-		<!-- Все библиотеки ниже скачиваются отдельно со своих официальных сайтов-->
-		<!-- Математические библиотеки math.js и algebrite  -->
 		<script src="js/algebrite.bundle-for-browser.js"></script>
 		<script src="js/math.js"></script>
 		<!-- Библиотека для рисования -->
 		<script src="js/plotly-2.6.3.min.js"></script>
-		<!-- Библиотека географических карт, вставляется по инструкции на официальном сайте -->
-		<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-		<!-- Библиотека websocket игрового сервера -->
-		<script src="https://city.9pr.ru/socket.io/socket.io.js"></script>
 
 		<script>
 			Reveal.initialize({
-				hash: true, // данная настройка позволит после перезагрузки презентации вернутся к последнему открытому слайду
-				center: false, //Привязываем вверх слайда к верху экрана
-				slideNumber: true, //Показываем номер страницы
-				controls: true, //Разрешаем управлять презентацией с помощью клавиатуры
-				//Так как меню старый плагин, загружаем его старым методом
+				hash: true, 
+				center: false, 
+				slideNumber: true, 
+				controls: true, 
+				
 				dependencies: [
 					{
 						src: 'plugin/menu/menu.js'
 					},
 				],
-				//Настраиваем меню, показывая номер слайда и маркер пройденных слайдов
+				
 				menu : {
 					numbers: true,
 					markers: true, 
 				},
-				//Дополнительно подключим KaTeX
+
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
 			});
 		</script>
 		<script>
-			//Переменные слоя карты, содержающие метки городов
-			let markersLayer;
-			let markersLayer2;
-			let markersLayer3;
-			//Массив меток городов
-			let markers;
-			let markers2;
-			let markers3 = [];
-			//Копия последнего массива меток для отката назад, если понадобится
-			let markersCopy = [];
-			//Счет игры
-			let score2 = [0,0];
-			let score3 = [0,0];
-			//Последние координаты для подсчета счета игры
-			let lastCoord2 = [];
-			let lastCoord3 = [];
-			//Имя играющего
-			let name;
-			//Имя противника
-			let opponent;
-			//Метка кто ходит первым, а кто вторым
-			let whoGo;
-			//Номер игровой комнаты
-			let room;
-			//Ссылка на подключение сокета
-			let socket;
-			//Множество городов для третьей игры
-			let game3Set;
+			
+			//варианты
+			let variants = [];
+			//частоты
+			let freq = [];
+			//варианты без повтора
+			let variants1 = [];
+			//Стороны выпавших монет
+			let side = [];
+			//Вероятность выпадения орла
+			let ver;
+			let n = 0;
+			let col = 0;
 
-			//Запускаем наши программы только после того, как вся страница полностью прогрузится
 			window.onload = () => {
 
-				//Костыль для совместной работы меню и input
-				//Имеется баг, при введение мягкого знака в поле вода
-				//включается меню. Этим костылем мы отменяем это действие
-				document.addEventListener('keydown', (event) => {
-					//Так как код клавиши Ь - 77, а тег INPUT, то сравниваем
-					//и закрываем меню при соблюдение условий
-					if (event.keyCode === 77 && ['INPUT'].indexOf(
-						event.target.tagName
-					) > -1) {
+				document.addEventListener('keydown', (event) => 
+				{
+					if (event.keyCode === 77 && ['INPUT'].indexOf(event.target.tagName) > -1) 
+					{
 						RevealMenu.toggle();
 					}
 				});
 
-				//Рисуем круг
-				let layout = {
-					//Заголовок
-					title: 'Тригонометрический круг',
+				//вычисление выборочной средней 
+				document.querySelector('#getSelaverage').onclick = () => 
+				{
+					let selaverageString = document.querySelector('#selaverage');
+					if (selaverageString !== undefined && selaverageString.value !== '') 
+					{
+						let list = selaverageString.value.split(',');
+						let selaverage = math.mean.apply(math, list);
+						document.querySelector('#resultSelaverage').value = selaverage;
+					}
+				}
+
+				//вычисление медианы
+				document.querySelector('#getMediana').onclick = () => 
+				{
+					let medianaString = document.querySelector('#mediana');
+					if (medianaString !== undefined && medianaString.value !== '') 
+					{
+						let list = medianaString.value.split(',');
+						let mediana = math.median.apply(math, list);
+						document.querySelector('#resultMediana').value = mediana;
+					}
+				}
+
+				//вычисление моды
+				document.querySelector('#getModa').onclick = () => 
+				{
+					let modaString = document.querySelector('#moda');
+					if (modaString !== undefined && modaString.value !== '') 
+					{
+						let list = modaString.value.split(',');
+						let moda = math.mode.apply(math, list);
+						document.querySelector('#resultModa').value = moda;
+					}
+				}
+
+				//вычисление минимума
+				document.querySelector('#getMinimum').onclick = () => 
+				{
+					let minimumString = document.querySelector('#minimum');
+					if (minimumString !== undefined && minimumString.value !== '')
+					{
+						let list = minimumString.value.split(',');
+						let minimum = math.min.apply(math, list); 
+						document.querySelector('#resultMinimum').value = minimum;
+					}
+				}
+
+				// Вычисление максимума
+				document.querySelector('#getMaximum').onclick = () => 
+				{
+					let maximumString = document.querySelector('#maximum');
+					if (maximumString !== undefined && maximumString.value !== '')
+					{
+						let list = maximumString.value.split(',');
+						let maximum = math.max.apply(math, list); 
+						document.querySelector('#resultMaximum').value = maximum;
+					}
+				}
+
+				//вычисление размаха
+				document.querySelector('#getRange').onclick = () => 
+				{
+					let rangeString = document.querySelector('#range');
+					if (rangeString !== undefined && rangeString.value !== '') 
+					{
+						let list = rangeString.value.split(',');
+						let range = math.max.apply(math, list) - math.min.apply(math, list); 
+						document.querySelector('#resultRange').value = range;
+					}
+				}
+
+				//вычисление дисперсии 
+				document.querySelector('#getVariance').onclick = () => 
+				{
+					let varianceString = document.querySelector('#variance');
+					if (varianceString !== undefined && varianceString.value !== '') 
+					{
+						let list = varianceString.value.split(',');
+						let variance = math.variance(list,'uncorrected');
+						let isprvariance = math.variance.apply(math, list); 
+						document.querySelector('#resultVariance').value = variance;
+						document.querySelector('#resultIsprVariance').value = isprvariance;
+					}
+				}
+
+				let layout = 
+				{
 					//Ограничение координатной плоскости
-					xaxis: {
-						range: [-1.5, 1.5],
+					xaxis: 
+					{
+						range: [0, 100],
+						title: 'Варианты',
 					},
-					yaxis: {
-						range: [-1.5, 1.5],
+					yaxis: 
+					{
+						range: [0, 40],
+						title: 'Частоты',
 					},
 					//Ширина и высота координатной плоскости
-					width: 500,
-					height: 500,
-					//Графики
-					shapes: [
-						{
-							// окружность задается с помощью описаного около него прямоугольника
-							// по координатам левой нижнего и правого верхнего угла
-							type: 'circle',
-							xref: 'x',
-							yref: 'y',
-							x0: -1,
-							y0: -1,
-							x1: 1,
-							y1: 1,
-							line: {
-								color: 'rgba(50, 171, 96, 1)',
-							},
-						},
-						{
-							// Отрезки задаются с помощью координат концом. Координаты считаются по теореме Пифагора
-							type: 'line',
-							x0: 0,
-							y0: 0,
-							x1: Math.sqrt(.51),
-							y1: .7,
-							line: {
-								color: 'blue',
-								width: 2.5,
-							},
-						},
-						{
-							type: 'line',
-							x0: 0,
-							y0: .7,
-							x1: Math.sqrt(.51),
-							y1: .7,
-							line: {
-								color: 'red',
-								width: 2.5,
-							},
-						},
-						{
-							type: 'line',
-							x0: Math.sqrt(.51),
-							y0: 0,
-							x1: Math.sqrt(.51),
-							y1: .7,
-							line: {
-								color: 'red',
-								width: 2.5,
-							},
-						},
-					],
-					//Подписи графиков
-					annotations: [
-						{
-							x: 0,
-							y: .7,
-							xref: 'x',
-							yref: 'y',
-							text: 'Yb',
-							arrowhead:7, 
-							showarrow: true,
-							ay: 0,
-							ax: -20,
-						},
-						{
-							x: Math.sqrt(.51),
-							y: 0,
-							xref: 'x',
-							yref: 'y',
-							text: 'Xb',
-							arrowhead:7, 
-							showarrow: true,
-							ay: 20,
-							ax: 0,
-						},
-						{
-							x:  Math.sqrt(.51),
-							y: .7,
-							text: 'B',
-						},
-						{
-							x: -.1,
-							y: -.1,
-							text: '0',
-							ax: 0,
-							ay: 0,
-						},
-					],
-				};
-				//Рисуем график, 1 аргумент id блока, в который рисуем
-				//2 аргумент оставим пустой массив, 3 аргумент объект с данными
-				Plotly.newPlot('plot', [], layout);
+					width: 1000,
+					height: 640,
 
-				//Рассчет ортодромы
-				//Программируем кнопка подсчета
-				document.querySelector('#ortodroma').onclick = (e) => {
-					//Считываем координаты точек
-					let latA = document.querySelector('#latA').value;
-					let latB = document.querySelector('#latB').value;
-					let lonA = document.querySelector('#lonA').value;
-					let lonB = document.querySelector('#lonB').value;
-					//Делаем проверку на пустоту полей. Если хотя бы 1 не заполнено, то выводим ошибку
-					if (latA === '' || latB === '' || lonA === '' || lonB === '') {
-						alert('Не все поля заполнены');
-					}
-					//Ставим ограничение по максимальным значениям долготы и широты
-					if (
-						+latA < -90 || +latA > 90 ||
-						+latB < -90 || +latB > 90 ||
-						+lonA < -180 || +lonA > 180 ||
-						+lonB < -180 || +lonB > 180
-					) {
-						alert('Неверное значение одного из полей');
-					}
-					//Считаем ортодрому между 2 точками
-					let result = ortodroma(+latA, +lonA, +latB, +lonB);
-					//Выводим результат в специальное поле
-					document.querySelector('#ortodroma_out').innerHTML = result;
 				}
+				
+				Plotly.newPlot('plot',[],layout);
+				
+				document.querySelector('#diagramma').onclick = () =>
+				{
+					variants = [];
+					freq = [];
+					variants1 = [];
 
-				// Конвертер величин
-				document.querySelector('#converter_button').onclick = () => {
-					//Считываем данные из формы
-					let converterValue = document.querySelector('#converter_value');
-					let converterType = document.querySelector('#converter_type');
-					let converterOut = document.querySelector('#converter_out');
-					//Делаем проверку на пустоту
-					if (converterValue.value === '') {
-						alert('Поле не заполнено');
-					}
-					//Получаем значение выпадающего меню
-					// 0 - это радианы
-					// 1 - это градусы
-					let currentType = +converterType.options.selectedIndex;
-					if (currentType === 0) {
-						//Формируем формулы перевода и рендерим катехом
-						result = katex.renderToString( 
-							math.evaluate('180 * ' + converterValue.value + '/ pi') + 
-							'^{\\circ}');
-					} else if (currentType === 1) {
-						//Формируем формулы перевода и рендерим катехом
-						result = katex.renderToString( math.simplify(converterValue.value + 
-						' * pi / 180').toTex());
-					}
-					//Записываем результат в поле вывода
-					converterOut.innerHTML = result;
-				}
-
-				//Таблица тригонометрических функций
-				//Массив значений для таблицы
-				let values = ['0', 'pi/6', 'pi/4', 'pi/3', 'pi/2', 
-					'pi', '3pi/2', '2pi',	
-				];
-				//Массив функций для таблицы
-				let functions = ['sin', 'cos', 'tan'];
-				//Запускаем функцию генерирующую таблицу
-				trigonometry(values, functions);
-
-
-				// Игра 1
-				//Программируем клик по кнопке старт
-				document.querySelector('#game1_start').onclick = () => {
-					//Скрываем саму кнопку
-					document.querySelector('#game1_start').style.display = 'none';
-					//Отобразим игровое поле
-					document.querySelector('#game1_area').style.display = 'block';
-					//Инициализируем карту
-					map_game1 = L.map('game1_map').setView([51.478, 0, 0], 13);
-					//Подгрузим тайлы карты и добавим их на карту
-					L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
-					.addTo(map_game1);
-				}
-				//Что бы города не повторялись используем множество. так как в нем все элементы уникальны
-				const game1Set = new Set();
-				//Програмируем клик отправки города
-				document.querySelector('#game1_set_result').onclick = async () => {
-					//получаем город из поля
-					let town = document.querySelector('#game1_town').value;
-					//Делаем проверку, что этот город еще не был введен
-					if (game1Set.has(town)) {
-						alert('Данный город уже был');
-					} else {
-						//Если такого города нет, то добавим его в множество
-						game1Set.add(town);
-						//делаем запрос к игровому серверу о получении информации о введенном городе
-						let response = await fetch(`https://city.9pr.ru/city/${town}`);
-						//получаем текст сообщения
-						let text = await response.text();
-						//так как ответ приходит в формате JSON, предварительно отпарсим его
-						text = JSON.parse(text);
-						//Делаем проверку на ошибки, если поле с ошибкой не пусто, то оповещаем, если нет, идем дальше
-						if (text.error === undefined || text.error === null) {
-							//делаем проверку на существование города. если город существует, то идем дальше.
-							if (text.no === undefined) {
-								//Получаем последнюю букву города, чтобы следующий начинался на предыдущую
-								let lastletter = lastLetter(town);
-								//Предварительно очистим слой с метками
-								if (markersLayer !== undefined) {
-									markersLayer.clearLayers();
-								}
-								//Обнулим массив меток
-								markers = [];
-								//Добавим метку введенного пользователем города
-								markers.push(
-									L.marker([text.latitude, text.longitude]).
-									bindPopup(text.city)
-								);
-								//делаем запрос к игровому серверу о получении города на последнюю букву введенного города
-								response = await fetch(`https://city.9pr.ru/lastletter/${lastletter}`);
-								//получаем текст сообщения
-								text = await response.text();
-								//так как ответ приходит в формате JSON, предварительно отпарсим его
-								text = JSON.parse(text);
-								//Делаем проверку на ошибки, если поле с ошибкой не пусто, то оповещаем, если нет, идем дальше
-								if (text.error === undefined || text.error === null) {
-									//Добавим город в множество, чтобы не повторялся и этот город
-									game1Set.add(text.city);
-									//Добавим и его в массив меток для карты
-									markers.push(
-										L.marker([text.latitude, text.longitude]).
-										bindPopup(text.city)
-									);
-									//Покажем информацию об обоих городах
-									document.querySelector('#game1_town2').innerHTML = `
-										<div>Ваш город: ${town}. <br> Город противника
-											${text.city}</div>
-									`;
-									//Для удобства первую букву нового города покажем в лейбле 
-									document.querySelector('label[for="game1_town"]').textContent = `
-											Ваш город на ${lastLetter(text.city).toUpperCase()}:
-									`;
-									//а так же сразу вставим её в поле ввода
-									document.querySelector('#game1_town').value = 
-										lastLetter(text.city).toUpperCase();
-									//Добавим метки на карту
-									markersLayer = L.featureGroup(markers).addTo(map_game1);
-									//Передвинем карту, чтобы обе метки оказались в зоне видимости
-									map_game1.fitBounds(markersLayer.getBounds());
-								} else {
-									//Выведем ошибку
-									document.querySelector('#game1_town1').innerHTML =
-									'Произошла ошибка, игра окончена.';
-									console.log('Ошибка: ', text.error);
-								}
-							} else {
-								//Выведем ошибку
-								alert('Такого города не существует');
-							}
-						} else {
-							//Выведем ошибку
-							document.querySelector('#game1_town1').innerHTML =
-							'Произошла ошибка, игра окончена.';
-							console.log('Ошибка: ', text.error);
+					if(variants.length === 0)
+					{
+						for(let i = 0; i<1000; i++)
+						{
+							variants[i] = Math.floor(Math.random()*100) + 1;
 						}
+						variants = sortmass(variants);
 					}
+					let counts = 
+					{
+						x: variants1,
+						y: freq,
+						type: 'scatter',
+						line:
+						{
+							color: 'rgb(34, 4, 64)',
+							width: 2.5,
+						},
+					};
+					let data = [counts];
+					
+					Plotly.newPlot('plot', data, layout);
 				}
 
-				// Игра 2
-				//Программируем клик по кнопке старт
-				document.querySelector('#game2_start').onclick = () => {
-					//Скрываем саму кнопку
-					document.querySelector('#game2_start').style.display = 'none';
-					//Отобразим игровое поле
-					document.querySelector('#game2_area').style.display = 'block';
-					//Отобразим счет и покажем нулевой счет
-					document.querySelector('#game2_score').style.display = 'block';
-					document.querySelector('#game2_score').innerHTML = 'Игрок 0 : 0 Компьютер';
-					//Инициализируем карту
-					map_game2 = L.map('game2_map').setView([51.478, 0, 0], 13);
-					//Подгрузим тайлы карты и добавим их на карту
-					L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
-					.addTo(map_game2);
-					//Обнуляем переменную счета на начало игры
-					score2 = [0, 0];
+				// Игра "Подбрось монетку"
+				document.querySelector('#game').onclick = () =>
+				{
+					n = 0;
+					n = Math.round(Math.random());
+					if(n===0)
+					{
+						document.querySelector('#resultGame').value = 'Орёл';
+						side[col]=0;
+						col++;
+					}
+					else
+					{
+						document.querySelector('#resultGame').value = 'Решка';
+						side[col] = 1;
+						col++;
+					}
+					document.querySelector('#odds_res').value = OddsV(side);
+					console.log(side);
 				}
-				//Что бы города не повторялись используем множество. так как в нем все элементы уникальны
-				const game2Set = new Set();
-				//Програмируем клик отправки города
-				document.querySelector('#game2_set_result').onclick = async () => {
-					//получаем город из поля
-					let town = document.querySelector('#game2_town').value;
-					//Делаем проверку, что этот город еще не был введен
-					if (game2Set.has(town)) {
-						alert('Данный город уже был');
-					} else {
-						//Если такого города нет, то добавим его в множество
-						game2Set.add(town);
-						//делаем запрос к игровому серверу о получении информации о введенном городе
-						let response = await fetch(`https://city.9pr.ru/city/${town}`);
-						//получаем текст сообщения
-						let text = await response.text();
-						//так как ответ приходит в формате JSON, предварительно отпарсим его
-						text = JSON.parse(text);
-						//Делаем проверку на ошибки, если поле с ошибкой не пусто, то оповещаем, если нет, идем дальше
-						if (text.error === undefined || text.error === null) {
-							//делаем проверку на существование города. если город существует, то идем дальше.
-							if (text.no === undefined) {
-								//Получаем последнюю букву города, чтобы следующий начинался на предыдущую
-								let lastletter = lastLetter(town);
-								//Предварительно очистим слой с метками
-								if (markersLayer2 !== undefined) {
-									markersLayer2.clearLayers();
-								}
-								//Обнулим массив меток
-								markers2 = [];
-								//Если в переменной последних координат есть запись, то считаем ортодрому
-								//между Вашим городом и городом компьютера. Отбрасываем дробную часть и записываем
-								//в счет игрока
-								if (lastCoord2.length === 2) {
-									score2[0] += Math.floor(
-										ortodroma(
-											text.latitude, text.longitude,
-											lastCoord2[0], lastCoord2[1]
-										)
-									);
-								}
-								//обновим переменную последних координат
-								lastCoord2 = [text.latitude, text.longitude];
-								//Добавим метку введенного пользователем города
-								markers2.push(
-									L.marker([text.latitude, text.longitude]).
-									bindPopup(text.city)
-								);
-								//делаем запрос к игровому серверу о получении города на последнюю букву введенного города
-								response = await fetch(`https://city.9pr.ru/lastletter/${lastletter}`);
-								//получаем текст сообщения
-								text = await response.text();
-								//так как ответ приходит в формате JSON, предварительно отпарсим его
-								text = JSON.parse(text);
-								//Делаем проверку на ошибки, если поле с ошибкой не пусто, то оповещаем, если нет, идем дальше
-								if (text.error === undefined || text.error === null) {
-									//Добавим город в множество, чтобы не повторялся и этот город
-									game2Set.add(text.city);
-									//Если в переменной последних координат есть запись, то считаем ортодрому
-									//между Вашим городом и городом компьютера. Отбрасываем дробную часть и записываем
-									//в счет компьютера
-									if (lastCoord2.length === 2) {
-										score2[1] += Math.floor(
-											ortodroma(
-												text.latitude, text.longitude,
-												lastCoord2[0], lastCoord2[1]
-											)
-										);
-									}
-									//обновим переменную последних координат
-									lastCoord2 = [text.latitude, text.longitude];
-									//Добавим и его в массив меток для карты
-									markers2.push(
-										L.marker([text.latitude, text.longitude]).
-										bindPopup(text.city)
-									);
-									//Покажем информацию об обоих городах
-									document.querySelector('#game2_town2').innerHTML = `
-										<div>Ваш город: ${town}. <br> Город противника
-											${text.city}</div>
-									`;
-									//Для удобства первую букву нового города покажем в лейбле 
-									document.querySelector('label[for="game2_town"]').textContent = `
-											Ваш город на ${lastLetter(text.city).toUpperCase()}:
-									`;
-									//а так же сразу вставим её в поле ввода
-									document.querySelector('#game2_town').value = 
-										lastLetter(text.city).toUpperCase();
-									//Добавим метки на карту
-									markersLayer2 = L.featureGroup(markers2).addTo(map_game2);
-									//Передвинем карту, чтобы обе метки оказались в зоне видимости
-									map_game2.fitBounds(markersLayer2.getBounds());
-									//Выведем счет на экран по принципу. Разница между ведущим игроком
-									// и отстающим у ведущего и 0 у отстающего всегда. Это сделано, чтобы 
-									// не перегружать экран большими числами
-									document.querySelector('#game2_score').innerHTML =
-									score2[0] >= score2[1] ?
-									`<b>Игрок</b> ${score2[0]-score2[1]} : 0 Компьютер` :
-									`Игрок 0 : ${score2[1]-score2[0]} Компьютер`
-								} else {
-									//Выведем ошибку
-									document.querySelector('#game2_town2').innerHTML =
-									'Произошла ошибка, игра окончена.';
-									console.log('Ошибка: ', text.error);
-								}
-							} else {
-								//Выведем ошибку
-								alert('Такого города не существует');
-							}
-						} else {
-							//Выведем ошибку
-							document.querySelector('#game2_town2').innerHTML =
-							'Произошла ошибка, игра окончена.';
-							console.log('Ошибка: ', text.error);
+
+				//Функция подсчета вероятности выпадения орла
+				function OddsV(massiv)
+				{
+					ver = 0.5;
+					let orl = 0;
+					if(massiv.length === 1){ver = 0.5;}
+					else
+					{
+						for(let i = 0; i < massiv.length; i++)
+						{
+							orl = massiv[i]===0 ? orl+1 : orl+0;
 						}
+						if(orl === 0 && orl === massiv.length) ver = 0.5;
+						else ver = orl/massiv.length;
+					}
+					return ver;
+				}
+			}
+
+			//Функция возвращающая массив из частот вариант
+		    function freqVar(massiv)
+			{
+				let count = 1;
+				let nom = 0;
+				let sum = 0;
+				for(let i = 0; i < massiv.length-1; i++)
+				{
+					while(massiv[i]===massiv[i+1] && sum!==1000)
+					{
+						count+=1;
+						i++;
+						sum+=1;
+					}
+					if(sum!==1000)
+					{
+						freq[nom] = count;
+						variants1[nom] = massiv[i];
+						count = 1;
+						nom++;
+						sum+=1;
+					}	
+				}
+				if(massiv[massiv.length-2]!==massiv[massiv.length-1] && sum!==1000)
+				{
+					freq[nom] = 1;
+					variants1[nom] = massiv[massiv.length-1];
+				}
+				return([freq,variants1]);
+			}
+
+			//Функция сортировки элементов массива по возрастанию
+			function sortmass (variant)
+			{
+				for(let i=0; i<1000; i++)
+				{
+					for(let j=i; j<1000; j++)
+					{
+						if(variant[i]-variant[j] < 0 || variant[i]-variant[j] === 0) variant[i] = variant[i];
+						if(variant[i]-variant[j] > 0)
+						{
+							let buf = variant[i];
+							variant[i] = variant[j];
+							variant[j] = buf;
+						} 
 					}
 				}
-
-				//3игра
-				//Что бы города не повторялись используем множество. так как в нем все элементы уникальны
-				game3Set = new Set();
-				//Программируем клик по кнопке старт
-				document.querySelector('#game3_start').onclick = () => {
-					//Если сокеты игрового сервера не прогрузились, то играть бессмысленно, выдаем ошибку.
-					//В противном случае подключаемся к игровому серверу.
-					if (typeof io !== 'undefined') {
-						//Подключаемся к сокетам игрового сервера
-						socket = io("https://city.9pr.ru");
-						//Все события сокетов проводим внутри этого блока
-						socket.on("connect", () => {
-							//сокет ожидания игрока. Как только к игре кто-то присоеденился, то мы получим этот сокет
-							socket.on('wait', (body) => {
-								//получим id игровой комнаты, в которой идет игра
-								room = body.room;
-								//Обойдем всех игроков в комнате
-								Object.keys(body.gamers).forEach(gamePlayer => {
-									//когда найдем не себя, запустим процесс начала игры
-									if (name !== gamePlayer) {
-										//Запишем имя соперника
-										opponent = gamePlayer;
-										//Запишем порядок хода
-										whoGo = body.gamers[gamePlayer][1];
-										//Выводим на экран сообщение о том, кто присоеденился к игре
-										document.querySelector('#game3_waiting').innerHTML = `К игре присоеденился: ${gamePlayer}. Ожидайте начала игры.`;
-										//По таймауту отображаем игровое поле. Таймаут нужен для предотвращения ошибок подключения
-										setTimeout(() => {
-											//Скрываем кнопки начала игры и сообщения о присоединения к игре
-											document.querySelector('#game3_button_start').style.display = 'none';
-											document.querySelector('#game3_area').style.display = 'none';
-											document.querySelector('#game3_waiting').style.display = 'none';
-											//Отображаем первоначальный счет игры с именами игроками
-											document.querySelector('#game3_score').style.display = 'block';
-											document.querySelector('#game3_score').innerHTML = `"${name}" 0 : 0 "${opponent}"`;
-											//Инициализируем карту
-											map_game3 = L.map('game3_map').setView([51.478, 0, 0], 13);
-											//Заполняем её тайлами
-											L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map_game3);
-											//Обнуляем счет игры
-											score3 = [0,0];
-											//Второй игрок должен подождать пока ход сделает первый игрок, поэтому выводим ему блокирующее сообщение
-											if (whoGo == 1) {
-												document.querySelector('#game3_waiting').style.display = 'block';
-												document.querySelector('#game3_waiting').innerHTML = 'Подождите, пока Ваш оппонент сделает ход.';
-											//Первому игроку выводим игровое поле
-											} else {
-												document.querySelector('#game3_area').style.display = 'block';
-											}
-											//Таймаут делаем 3 секунды
-										}, 3000);
-									}
-								});
-							});
-							//Событие на получения города, отправленного соперником
-							socket.on('getCity', (body) => {
-								//Получаем счет
-								score3 = body.score;
-								//Расписываем счет в поле счета по принципу. Ведущий - разность счета двух игроков. Отстающий - ноль.
-								//При ничьей 0:0. Это нужно для уменьшения количество символов в счете. Иначе поле начинает
-								//очень быстро заполняться и выходить за пределы экрана
-								//Конструкция (whoGo+1)%2 позволяет получить в результате или 0 или 1, что нам и нужно
-								if (score3[whoGo] > score3[(whoGo+1)%2]) {
-									document.querySelector('#game3_score').innerHTML = 
-										`<p><b>"${name}" ${score3[whoGo]}</b> : ${score3[(whoGo+1)%2]} "${opponent}"</p>`;
-								} else if (score3[whoGo] < score3[(whoGo+1)%2]) {
-									document.querySelector('#game3_score').innerHTML = 
-										`<p>"${name}" ${score3[whoGo]} : <b>${score3[(whoGo+1)%2]} "${opponent}"</b></p>`;
-								} else {
-									document.querySelector('#game3_score').innerHTML = 
-										`<p>"${name}" 0 : 0 "${opponent}"</p>`;
-								}
-								//Если имя в событие равно имени опонента, то значит город ввел он. Начинает менять игровое поле.
-								if (body.name === opponent) {
-									//Предварительно очистим слой меток на карте. 
-									if (markersLayer3 !== undefined) {
-										markersLayer3.clearLayers();
-									}
-									//Добавим город в множество неповторений, чтобы город нельзя было ввести повторно
-									game3Set.add(body.city.city);
-									//Обновим массив последних координат
-									lastCoord3 = [body.city.latitude, body.city.longitude];
-									//Добавим метку в массив меток
-									markers3.push(L.marker([body.city.latitude, body.city.longitude]).bindPopup(body.city.city));
-									//Если меток стало 3, то убираем 1 в очереди. Так как нам всегда нужно иметь не больше 2 меток
-									if (markers3.length > 2) {
-										markers3.shift();
-									}
-									//Добавим метки на карту
-									markersLayer3 = L.featureGroup(markers3).addTo(map_game3);
-									//Позиционируем карту
-									map_game3.fitBounds(markersLayer3.getBounds());
-									//Отобразим игровую область
-									document.querySelector('#game3_area').style.display = 'block';
-									//Скроем сообщения об ожидании хода
-									document.querySelector('#game3_waiting').style.display = 'none';
-									//Получим последнюю букву имени
-									let lastletter2 = lastLetter(body.city.city);
-									//Для удобства первую букву города, который придется ввести игроку выведем в label поля ввода
-									//, а также в само поле ввода
-									document.querySelector('#game3_town').value = lastletter2.toUpperCase();
-									document.querySelector('label[for="game3_town"]').textContent = `Ваш город на ${lastletter2.toUpperCase()}:`;
-								}
-							});
-							//Если пришло сообщение об ошибке
-							socket.on('error', (body) => {
-								//Первый тип ошибки сможет присылаться до начала игры. Например, когда имя уже занято
-								if (body.type === 'pre_game') {
-									//Выведем ошибку в alert и вернем поле ввода имени на место
-									document.querySelector('#game3_start').style.display = 'inline';
-									document.querySelector('#game3_waiting').style.display = 'none';
-									alert(body.text);
-								//Второй тип ошибки сможет присылаться только во время самой игры. 
-								//Например нарушены правила игры
-								} else if (body.type === 'in_game') {
-									//Выведем в alert сообщение об ошибки и востановим игровое поле
-									//в состояние, как было до нарушения игры
-									document.querySelector('#game3_area').style.display = 'inline';
-									document.querySelector('#game3_waiting').style.display = 'none';
-									if (markersLayer3 !== undefined) {
-										markersLayer3.clearLayers();
-									}
-									markersLayer3 = L.featureGroup(markersCopy).addTo(map_game3);
-									map_game3.fitBounds(markersLayer3.getBounds());
-									game3Set.delete($('#game3_town').value);
-									alert(body.text);
-								}
-							});
-							//Сообщение о том, что один из игроков покинул игру
-							socket.on('exit', (data) => {
-								//Скроем игровую область, карту и счет.
-								document.querySelector('#game3_area').style.display = 'none';
-								document.querySelector('#game3_score').style.display = 'none';
-								document.querySelector('#game3_map').style.display = 'none';
-								//Выведем на экран последний счет игры с сообщением о том, что 
-								//игра закончена по причине выхода из неё второго игрока
-								document.querySelector('#game3_waiting').style.display = 'block';
-								document.querySelector('#game3_waiting').innerHTML = `
-									<p>К сожалению ${data.name} покинул игру. Игра окончена.</p>
-									<p>Счет игры "${name}" ${score3[whoGo]} : ${score3[(whoGo+1)%2]} "${opponent}"</p>
-								`;
-								document.querySelector('#game3_start').style.display = 'block';
-								game3Set.clear();
-							});
-							//Сообщение о том, что соединение с сервером пропало
-							socket.on("disconnect", (reason) => {
-								//Скроем игровую область, карту и счет.
-								document.querySelector('#game3_area').style.display = 'none';
-								document.querySelector('#game3_score').style.display = 'none';
-								document.querySelector('#game3_map').style.display = 'none';
-								//Выведем на экран последний счет игры с сообщением о том, что 
-								//игра закончена по причине выхода из неё второго игрока
-								document.querySelector('#game3_waiting').style.display = 'block';
-								document.querySelector('#game3_waiting').innerHTML = `
-									<p>К сожалению соединение с сервером потеряно. Игра окончена.</p>
-									<p>Счет игры "${name}" ${score3[whoGo]} : ${score3[(whoGo+1)%2]} "${opponent}"</p>
-									Для старта новой игры - обновите страницу.`;
-								game3Set.clear();
-							});
-						});
-
-						//При нажатие на кнопку старт скрываем кнопку старт 
-						document.querySelector('#game3_start').style.display = 'none';
-						//Выводим блок с ожиданием игрока
-						document.querySelector('#game3_waiting').style.display = 'block';
-						//Имя игрока сразу сохраним себе
-						name = document.querySelector('#game3_name').value;
-						//Выводим текст Ожидайте игрока на экран
-						document.querySelector('#game3_waiting').innerHTML = `<p>Ожидайте игрока</p>`;
-						//отправим серверу сообщение о желание начать игру и имя игрока
-						socket.emit('start', name);
-					} else {
-						//Вслучае если сервер недоступен, то выводим это сообщение
-						alert('Соединение с сервером отсутствует, попробуйте начать игру позднее, перезагрузив страницу.');
-					}
-				};
-				//Программируем клик для отправки города на сервер
-				document.querySelector('#game3_set_result').onclick = async () => {
-					//Получаем город из поля ввода
-					let town = document.querySelector('#game3_town').value;
-					//Предваритально проверем, был ли этот город уже введен ранее
-					if (game3Set.has(town)) {
-						alert('Данный город уже был');
-					} else {
-						//Добавим его в множество городов, чтобы нельзя было его ввести повторно
-						game3Set.add(town);
-						//делаем запрос к игровому серверу о получении города на последнюю букву введенного города
-						let response = await fetch(`https://city.9pr.ru/city/${town}`);
-						//получаем текст сообщения
-						let text = await response.text();
-						//так как ответ приходит в формате JSON, предварительно отпарсим его
-						text = JSON.parse(text);
-						//Делаем проверку на ошибки, если поле с ошибкой не пусто, то оповещаем, если нет, идем дальше
-						if (text.error === undefined || text.error === null) {
-							//Если город существует, то идем по этому блоку
-							if (text.no === undefined) {
-								//Предварительно очищаем слой карты
-								if (markersLayer3 !== undefined) {
-									markersLayer3.clearLayers();
-								}
-								//Если переменная последних координат непуста, то считаем расстояние и плюсуем к счету в игре
-								//При этом отбросим дробную часть. Оставляем только целые метры.
-								if (lastCoord3.length === 2) {
-									score3[whoGo] += Math.floor(ortodroma (text.latitude, text.longitude, lastCoord3[0], lastCoord3[1]));
-								}
-								//Обновим координаты последнего города
-								lastCoord3 = [text.latitude, text.longitude];
-								//Делаем копию меток, чтобы можно было потом откатить назад, вслучае нарушения правил
-								markersCopy = Object.values(markers3);
-								//Добавим метку в массив, и когда меток станет 3, то очистим самую старую из них
-								markers3.push(L.marker([text.latitude, text.longitude]).bindPopup(text.city));
-								if (markers3.length > 2) {
-									markers3.shift();
-								}
-								//Добавим метки на карту
-								markersLayer3 = L.featureGroup(markers3).addTo(map_game3);
-								//Позиционирование карты
-								map_game3.fitBounds(markersLayer3.getBounds());
-								//Отправим сообщение серверу о текущем счете, игроке, комнате и городе
-								socket.emit('sendCity', {
-									score: score3,
-									name,
-									room,
-									city: text,
-								});
-								//Скрываем игровое поле и выводим сообщение об ожидание хода следующим игроком
-								document.querySelector('#game3_button_start').style.display = 'none';
-								document.querySelector('#game3_area').style.display = 'none';
-								document.querySelector('#game3_waiting').innerHTML = 'Подождите, пока Ваш оппонент сделает ход.';
-								document.querySelector('#game3_waiting').style.display = 'block';
-							} else {
-								//Если введенного города не существует, то введем соответствующее сообщение
-								alert(text.no);
-							}
-						//Если произошла какая-то ошибка сервера, из-за которого нельзя продолжать играть или даже начинать
-						//выводим сообщение о том, что игра окончена
-						} else {
-							document.querySelector('#game3_town2').innerHTML = `
-								<p>Произошла ошибка, игра окончена.</p>
-							`;
-							document.querySelector('#game3_set_result').style.display = 'none';
-							console.log('Ошибка: ', text.error);
-						}
-					}
-				};
-			}
-
-			//Функция рассчета расстояния между 2 точками на географической плоскости
-			function ortodroma (latA, lonA, latB, lonB) {
-				return 6372795 * Math.acos (
-					Math.cos(deg2rad(latB)) * Math.cos(deg2rad(latA)) *
-					Math.cos(deg2rad(lonA) - deg2rad(lonB)) + 
-					Math.sin(deg2rad(latB)) * Math.sin(deg2rad(latA))
-				);
-			}
-
-			//Функция конвертирования градусов в радианы по формуле
-			function deg2rad (degree) {
-				return Math.PI * degree / 180;
-			}
-
-			//Функция генерации тригонометрической таблицы
-			function trigonometry(values, functions) {
-				//Начинаем собирать таблицу путем добавления тегов
-				let table = '<table><thead>';
-					table += '<tr><td>Радианы</td>';
-					//В первой строке выводим в цикле значения углов 
-					for (let value of values) {
-						//С помощью катеха выводим эти значения красиво
-						table += `<td>${katex.renderToString(
-							Algebrite.simplify(value).toLatexString())}</td>`;
-					}
-					table += '</tr><thead><tbody>';
-					//В цикле обходим построчно тригонометрические функции
-					for (let func of functions) {
-						//В первую колонку с помощью катеха красиво выводим эти функции
-						table += `<tr><td>${func}${
-							katex.renderToString('\\alpha')}</td>`;
-							//В цикле обходим все колонки, подставляя аргумент функций
-							//И с помощью катеха выводим в красивом виде значение функции  
-							for (value of values) {
-								//С помощью Algebrite получим результат
-								let result = Algebrite.simplify(func+'('+value+')');
-								//После первого вывода выяснилось, что тангенс угла в 90 градусов
-								//отображался выражением tg pi/2.
-								//Методом научного тыка определили маркер отслеживания этих значений
-								//и создали дополнительное условие, при котором вместо tg pi/2 выводим
-								//бесконечность
-								if (result.cons.car !== null &&
-									result.cons.car.printname == 'tan') {
-										table += `<td>${katex.renderToString(
-											'\\infty'
-										)}</td>`;
-								} else {
-									table += `<td>${katex.renderToString(
-											result.toLatexString()
-										)}</td>`;
-								}
-							}
-					}
-				table += '</tbody></table>';
-				//Находим блок для вставки таблицы по его id и заполняем его нашей таблицей
-				document.querySelector('#table').innerHTML = table;
-			}
-
-			function lastLetter (town) {
-				let lastletter;
-				//Обходим слово посимвольно с конца.
-				for (let i = -1; i > -town.length; i--) {
-					//Забираем текущую букву в цикле
-					lastletter = town.substr(i, 1);
-					//Если там нет ы,ь,ъ то возвращаем эту букву, иначе переходим 
-					// к следующей букве с конца
-					if (['ь','ъ','ы'].indexOf(lastletter) === -1) {
-						break;
-					}
-				}
-				return lastletter;
+				return variant;
 			}
 		</script>
 	</body>
